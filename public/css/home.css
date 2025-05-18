@@ -1,0 +1,327 @@
+body {
+    scroll-behavior: smooth;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --maincolor: #2196f3;
+    --maincolor-alt: #1787e0;
+    --main-padding: 100px;
+    --main-transition-dur: 0.3s;
+    --section-color: #ececec;
+}
+
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: auto;
+}
+
+.header {
+    position: relative;
+    box-shadow: 0px -10px 17px black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* margin-bottom: 10px; */
+    /* padding-bottom:10px; */
+    overflow: hidden;
+
+}
+
+.header .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header .logo img {
+    max-width: 100%;
+    height: 60px;
+    width: 90px;
+}
+
+.header .text p {
+    text-transform: capitalize;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.header p span:first-child {
+    color: #004aad;
+}
+
+.header p span:last-child {
+    color: #00bf63;
+}
+
+.header .form {
+    position: relative;
+}
+
+.header .form input {
+    border-radius: 20px;
+    width: 300px;
+    height: 30px;
+    padding: 8px;
+    border: 1px solid black;
+}
+
+.header .form button {
+    position: absolute;
+    right: 0px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 45%;
+    background-color: #4497f1;
+    width: 35px;
+    height: 100%;
+}
+
+.header .form button:hover {
+    cursor: pointer;
+}
+
+.header .form button i {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* .header .fac-img{
+    padding: 5px;
+} */
+.header .fac-img img {
+    max-width: 100%;
+    height: 60px;
+    width: 90px;
+}
+
+.content {
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 250px 1fr 300px;
+    /* Sidebar, Main, Right Section */
+    gap: 1rem;
+    height: calc(100vh - 80px);
+}
+
+aside {
+    height: 100%;
+    background-color: #fff;
+    /* White sidebar */
+    padding: 1rem;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+
+    /* Subtle shadow */
+}
+
+.sidebar {
+    padding: 10px 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10PX;
+    /* border-right: 1PX solid black; */
+    box-shadow: -4PX -4PX 13PX black;
+    /* Stack links vertically */
+}
+
+.sidebar a {
+    text-transform: capitalize;
+    display: flex;
+    align-items: center;
+    padding: 20px 10PX;
+    text-decoration: none;
+    color: #333;
+    transition: background-color 0.3s;
+    /* Smooth hover effect */
+}
+
+.sidebar a:hover {
+    background-color: #f0f0f0;
+    color: #007bff;
+}
+
+.sidebar a.active {
+    background-color: #e0e0e0;
+    /* Slightly darker for active */
+    color: #007bff;
+    /* Blue for active text */
+}
+
+.sidebar a i {
+    margin-right: 10px;
+    width: 20px;
+    /* Consistent icon size */
+    text-align: center;
+    /* Center icons */
+}
+
+.stats-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 10px;
+}
+
+.card {
+    background-image: linear-gradient(135deg,green,white);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.card:hover {
+    background-image: linear-gradient(135deg,white,green);
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.card:hover h3 {
+    color: #007bff;
+}
+
+.card h3 {
+    font-size: 18px;
+    color: black;
+}
+
+.card p {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+}
+
+.attendance {
+    background: white;
+    /* width: 320px; */
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.card-header h2 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.attendance-rate {
+    font-size: 22px;
+    color: #4caf50;
+}
+
+.chart-container {
+    margin-top: 20px;
+}
+
+.chart {
+    position: relative;
+    width: 100%;
+    height: 150px;
+    background: linear-gradient(180deg, #c5e1a5, #ffffff);
+    border-radius: 8px;
+    overflow: hidden;
+    padding: 10px;
+}
+
+.chart-line {
+    stroke: #4caf50;
+    fill: none;
+    stroke-width: 2;
+}
+
+.date-label {
+    text-align: right;
+    font-size: 14px;
+    color: #666;
+    margin-top: 5px;
+}
+
+.chart-labels {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 5px;
+    font-size: 12px;
+    color: #aaa;
+}
+
+/* Calendar Styling */
+.right-side {
+    height: 100%;
+    background-color: #fff;
+    /* White sidebar */
+    box-shadow: 4PX 4PX 13PX black;
+}
+
+.calendar {
+    background: white;
+    width: 300px;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-right: 10px;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.calendar-header h3 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #00bf63;
+}
+
+.days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.day {
+    padding: 10px;
+    background: #f1f1f1;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.day.selected {
+    background: #4497f1;
+    color: white;
+}
+
+.day:hover {
+    background: #86c1ff;
+}
+
+.day-name {
+    font-weight: bold;
+    color: #007bff;
+}
+
+.today {
+    background-color: var(--maincolor-alt);
+    color: white;
+    font-weight: bold;
+}
