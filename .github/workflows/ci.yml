@@ -1,4 +1,4 @@
-name: CI
+name: CI/CD
 
 on:
   push:
@@ -42,3 +42,16 @@ jobs:
 
     - name: Push Docker image to Docker Hub
       run: docker push your_dockerhub_username/your_laravel_app:latest
+
+    - name: SSH and Deploy
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.DEPLOYMENT_HOST }}
+        username: ${{ secrets.DEPLOYMENT_USER }}
+        key: ${{ secrets.DEPLOYMENT_PRIVATE_KEY }}
+        port: ${{ secrets.DEPLOYMENT_PORT }} # Optional, default is 22
+        script: |
+          docker pull your_dockerhub_username/your_laravel_app:latest
+          docker-compose -f /path/to/your/docker-compose.yml down
+          docker-compose -f /path/to/your/docker-compose.yml up -d
+
